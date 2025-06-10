@@ -89,14 +89,14 @@ const Home = () => {
             <input type="text" className="form-control shadow-sm" id="address" name="address" value={formData.address} onChange={handleChange} required placeholder="Enter your address" />
           </div>
 
-          <h4 className="text-center mb-3">Fitting Details</h4>
+          <h4 className="text-center mb-3">Your Details</h4>
 
           <div className="form-group">
             <label htmlFor="doorOrWindow" className="text-dark">Door or Window</label>
             <select className="form-control shadow-sm" id="doorOrWindow" name="doorOrWindow" value={formData.doorOrWindow} onChange={handleChange} required>
               <option value="">Select</option>
-              <option value="door">Door</option>
-              <option value="window">Window</option>
+              <option value="door">WELDING</option>
+              <option value="window">Others</option>
             </select>
           </div>
 
@@ -109,9 +109,9 @@ const Home = () => {
             <label htmlFor="material" className="text-dark">Material</label>
             <select className="form-control shadow-sm" id="material" name="material" value={formData.material} onChange={handleChange} required>
               <option value="">Select</option>
-              <option value="aluminum">Aluminum</option>
-              <option value="steel">Steel</option>
-              <option value="wood">Wood</option>
+              <option value="aluminum">welding</option>
+              <option value="steel">jcb Operator</option>
+              <option value="wood">Hittach Operator</option>
             </select>
           </div>
 
@@ -121,7 +121,7 @@ const Home = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="installationDate" className="text-dark">Installation Date</label>
+            <label htmlFor="installationDate" className="text-dark">Date Of birth</label>
             <input type="date" className="form-control shadow-sm" id="installationDate" name="installationDate" value={formData.installationDate} onChange={handleChange} required />
           </div>
 
