@@ -41,21 +41,22 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form submitted with data:', formData);
-    
+
     const response = await createBooking(formData);
 
     if (response.success) {
       console.log(response.message);
-      alert("sucess");
-      // Optional: show success alert
+      alert("Success");
     } else {
       console.error(response.message);
-      // Optional: show error alert
     }
   };
 
   return (
-    <div className="vw-100 d-flex flex-column justify-content-center align-items-center py-5" style={{ backgroundColor: bgColor }}>
+    <div
+      className="vw-100 d-flex flex-column justify-content-center align-items-center py-5"
+      style={{ backgroundColor: bgColor }}
+    >
       <form
         onSubmit={handleSubmit}
         className="w-100 h-100 p-5 shadow-lg rounded-lg"
@@ -66,6 +67,31 @@ const Home = () => {
           This is your main dashboard where you can explore different sections, manage your profile, and customize your settings.
         </p>
 
+        {/* ✅ Job Alert Section */}
+        <h1 className="text-center text-danger my-4">
+          🔧 Job Alert: Shri Amman Hydraulics Service & Welding Work<br />
+          📍 Location: Sathyamangalam<br />
+          🧑‍🔧 Contact Person: Raja (JCB Operator)<br />
+          📞 Contact: 9080040143
+        </h1>
+
+        {/* ✅ Additional Earth Movers Content */}
+        <div className="bg-light p-4 mb-4 rounded shadow-sm">
+          <h4 className="text-success text-center">Earth Movers & Equipment Services</h4>
+          <ul className="list-unstyled text-dark px-3">
+            <li>✅ JCB Excavation & Site Clearing</li>
+            <li>✅ Welding & Hydraulic Repairs for Earth Movers</li>
+            <li>✅ Hitachi Operator & Dumper Loader Support</li>
+            <li>✅ Field Work Available for Small to Medium Construction Sites</li>
+            <li>✅ Experienced Operators for Contract & Daily Work</li>
+            <li>✅ Fast Response for Emergency Breakdown Services</li>
+          </ul>
+          <p className="text-center text-primary font-weight-bold mt-3">
+            📞 Book Now for Reliable and Affordable Services
+          </p>
+        </div>
+
+        {/* ✅ Booking Form Section */}
         <section className="fitting-details-section py-4 w-100 h-100 p-4 bg-white" style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <h3 className="text-center mb-4 text-success">Booking Details</h3>
 
@@ -92,10 +118,10 @@ const Home = () => {
           <h4 className="text-center mb-3">Your Details</h4>
 
           <div className="form-group">
-            <label htmlFor="doorOrWindow" className="text-dark">Door or Window</label>
+            <label htmlFor="doorOrWindow" className="text-dark">Service Type</label>
             <select className="form-control shadow-sm" id="doorOrWindow" name="doorOrWindow" value={formData.doorOrWindow} onChange={handleChange} required>
               <option value="">Select</option>
-              <option value="door">WELDING</option>
+              <option value="door">Welding</option>
               <option value="window">Others</option>
             </select>
           </div>
@@ -106,12 +132,12 @@ const Home = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="material" className="text-dark">Material</label>
+            <label htmlFor="material" className="text-dark">Material / Job Type</label>
             <select className="form-control shadow-sm" id="material" name="material" value={formData.material} onChange={handleChange} required>
               <option value="">Select</option>
-              <option value="aluminum">welding</option>
-              <option value="steel">jcb Operator</option>
-              <option value="wood">Hittach Operator</option>
+              <option value="aluminum">Welding</option>
+              <option value="steel">JCB Operator</option>
+              <option value="wood">Hitachi Operator</option>
             </select>
           </div>
 
@@ -121,7 +147,7 @@ const Home = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="installationDate" className="text-dark">Date Of birth</label>
+            <label htmlFor="installationDate" className="text-dark">Date of Birth</label>
             <input type="date" className="form-control shadow-sm" id="installationDate" name="installationDate" value={formData.installationDate} onChange={handleChange} required />
           </div>
 
