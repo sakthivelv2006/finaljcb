@@ -76,7 +76,11 @@ const Home = () => {
         className="w-100 h-100 p-5 shadow-lg rounded-lg"
         style={{ maxWidth: '1000px', backgroundColor: formColor }}
       >
-        <h2 className="text-center mb-4 text-primary">Welcome to the Dashboard</h2>
+        <br></br>
+  <br></br>
+  <br></br>
+        <h2 className="text-center mb-4 text-primary">Welcome to the Raja Website</h2>
+        
         <p className="lead text-center mb-4 text-muted">
           This is your main dashboard where you can explore different sections, manage your profile, and customize your settings.
         </p>
@@ -102,9 +106,11 @@ const Home = () => {
             📞 Book Now for Reliable and Affordable Services
           </p>
         </div>
-
+<br></br>
+  <br></br>
+  <br></br>
         <section className="fitting-details-section py-4 w-100 h-100 p-4 bg-white" style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          <h3 className="text-center mb-4 text-success">Booking Details</h3>
+          <h3 className="text-center mb-4 text-success">Apply Your Job</h3>
 
           <div className="form-group">
             <label htmlFor="name" className="text-dark">Name</label>
@@ -129,7 +135,7 @@ const Home = () => {
           <h4 className="text-center mb-3">Your Details</h4>
 
           <div className="form-group">
-            <label htmlFor="doorOrWindow" className="text-dark">Service Type</label>
+            <label htmlFor="doorOrWindow" className="text-dark">Skill Type</label>
             <select className="form-control shadow-sm" id="doorOrWindow" name="doorOrWindow" value={formData.doorOrWindow} onChange={handleChange} required>
               <option value="">Select</option>
               <option value="door">Welding</option>
@@ -138,12 +144,12 @@ const Home = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="size" className="text-dark">Size (e.g., 2m x 3m)</label>
+            <label htmlFor="size" className="text-dark">Experience</label>
             <input type="text" className="form-control shadow-sm" id="size" name="size" value={formData.size} onChange={handleChange} required placeholder="Enter fitting size" />
           </div>
 
           <div className="form-group">
-            <label htmlFor="material" className="text-dark">Material / Job Type</label>
+            <label htmlFor="material" className="text-dark">Job Roles</label>
             <select className="form-control shadow-sm" id="material" name="material" value={formData.material} onChange={handleChange} required>
               <option value="">Select</option>
               <option value="aluminum">Welding</option>
@@ -153,7 +159,7 @@ const Home = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="color" className="text-dark">Color</label>
+            <label htmlFor="color" className="text-dark">About your self</label>
             <input type="text" className="form-control shadow-sm" id="color" name="color" value={formData.color} onChange={handleChange} required placeholder="Enter color" />
           </div>
 
@@ -170,7 +176,9 @@ const Home = () => {
             {isSubmitDisabled ? 'Already Submitted (Try again after 24 hrs)' : 'Submit'}
           </button>
         </section>
-
+  <br></br>
+  <br></br>
+  <br></br>
         <section className="cta-section py-5 text-center w-100 h-100 p-4 bg-light" style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <h3 className="text-info">Ready to take action?</h3>
           <p className="lead">Click below to get started with your tasks, settings, or explore more features.</p>
