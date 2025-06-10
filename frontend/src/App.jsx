@@ -96,6 +96,13 @@ const App = () => {
         <Dashboard userId={userId} logout={logout} />
       ) : (
         <div className="vw-100 d-flex flex-column justify-content-center align-items-center bg-light">
+          {/* 🔔 Instruction H1 Line Starts Here */}
+          <h1 className="text-center mt-4 mb-2 text-danger">
+            🖥️📱 For best experience:<br />
+            👉 Open <strong>Desktop Site</strong> in Chrome settings ⚙️<br />
+            📏 Then <strong>minimize screen</strong> to mobile view 🔽
+          </h1>
+          {/* 🔔 Instruction H1 Line Ends Here */}
           <form
             onSubmit={handleSubmit}
             className="w-100 h-100 p-4 bg-white"
