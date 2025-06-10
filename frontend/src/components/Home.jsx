@@ -18,6 +18,7 @@ const Home = () => {
 
   const [formColor, setFormColor] = useState('');
   const [bgColor, setBgColor] = useState('');
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
 
   const getRandomColor = () => {
     const letters = '0123456789ABCDEF';
@@ -31,6 +32,12 @@ const Home = () => {
   useEffect(() => {
     setFormColor(getRandomColor());
     setBgColor(getRandomColor());
+
+    const lastSubmitTime = localStorage.getItem('lastSubmitTime');
+    const now = new Date().getTime();
+    if (lastSubmitTime && now - parseInt(lastSubmitTime) < 24 * 60 * 60 * 1000) {
+      setIsSubmitDisabled(true);
+    }
   }, []);
 
   const handleChange = (e) => {
@@ -40,13 +47,20 @@ const Home = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted with data:', formData);
 
+    if (isSubmitDisabled) {
+      alert('You can submit the form only once every 24 hours.');
+      return;
+    }
+
+    console.log('Form submitted with data:', formData);
     const response = await createBooking(formData);
 
     if (response.success) {
       console.log(response.message);
       alert("Success");
+      localStorage.setItem('lastSubmitTime', new Date().getTime().toString());
+      setIsSubmitDisabled(true);
     } else {
       console.error(response.message);
     }
@@ -67,7 +81,6 @@ const Home = () => {
           This is your main dashboard where you can explore different sections, manage your profile, and customize your settings.
         </p>
 
-        {/* ✅ Job Alert Section */}
         <h1 className="text-center text-danger my-4">
           🔧 Job Alert: Shri Amman Hydraulics Service & Welding Work<br />
           📍 Location: Sathyamangalam<br />
@@ -75,7 +88,6 @@ const Home = () => {
           📞 Contact: 9080040143
         </h1>
 
-        {/* ✅ Additional Earth Movers Content */}
         <div className="bg-light p-4 mb-4 rounded shadow-sm">
           <h4 className="text-success text-center">Earth Movers & Equipment Services</h4>
           <ul className="list-unstyled text-dark px-3">
@@ -91,7 +103,6 @@ const Home = () => {
           </p>
         </div>
 
-        {/* ✅ Booking Form Section */}
         <section className="fitting-details-section py-4 w-100 h-100 p-4 bg-white" style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <h3 className="text-center mb-4 text-success">Booking Details</h3>
 
@@ -151,8 +162,12 @@ const Home = () => {
             <input type="date" className="form-control shadow-sm" id="installationDate" name="installationDate" value={formData.installationDate} onChange={handleChange} required />
           </div>
 
-          <button type="submit" className="btn btn-primary btn-lg w-100 mt-4 shadow-sm">
-            Submit
+          <button
+            type="submit"
+            className="btn btn-primary btn-lg w-100 mt-4 shadow-sm"
+            disabled={isSubmitDisabled}
+          >
+            {isSubmitDisabled ? 'Already Submitted (Try again after 24 hrs)' : 'Submit'}
           </button>
         </section>
 
